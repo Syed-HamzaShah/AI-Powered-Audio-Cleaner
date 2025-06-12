@@ -1,11 +1,69 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+
+import React from 'react';
+import { Hero } from '@/components/Hero';
+import { AudioUploader } from '@/components/AudioUploader';
+import { ProcessingOptions } from '@/components/ProcessingOptions';
+import { AudioPlayer } from '@/components/AudioPlayer';
+import { DownloadSection } from '@/components/DownloadSection';
+import { useAudioProcessor } from '@/hooks/useAudioProcessor';
 
 const Index = () => {
+  const {
+    uploadedFile,
+    setUploadedFile,
+    processingMode,
+    setProcessingMode,
+    isProcessing,
+    processedAudio,
+    startProcessing,
+    downloadProcessedAudio,
+    resetAll
+  } = useAudioProcessor();
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-slate-100">
+      {/* Hero Section */}
+      <Hero />
+      
+      {/* Main Content */}
+      <div className="container mx-auto px-4 py-12 max-w-4xl">
+        <div className="space-y-8">
+          {/* Upload Section */}
+          <AudioUploader 
+            onFileUpload={setUploadedFile}
+            uploadedFile={uploadedFile}
+            isProcessing={isProcessing}
+          />
+          
+          {/* Processing Options */}
+          {uploadedFile && (
+            <ProcessingOptions
+              mode={processingMode}
+              onModeChange={setProcessingMode}
+              onStartProcessing={startProcessing}
+              isProcessing={isProcessing}
+              disabled={isProcessing}
+            />
+          )}
+          
+          {/* Audio Player */}
+          {uploadedFile && (
+            <AudioPlayer
+              originalFile={uploadedFile}
+              processedAudio={processedAudio}
+              isProcessing={isProcessing}
+            />
+          )}
+          
+          {/* Download Section */}
+          {processedAudio && (
+            <DownloadSection
+              onDownload={downloadProcessedAudio}
+              onReset={resetAll}
+              fileName={uploadedFile?.name || 'audio'}
+            />
+          )}
+        </div>
       </div>
     </div>
   );
