@@ -57,15 +57,15 @@ export const AudioUploader: React.FC<AudioUploaderProps> = ({
 
   if (uploadedFile) {
     return (
-      <Card className="p-6 glass-effect border-slate-600 shadow-xl">
+      <Card className="p-6 bg-white/80 backdrop-blur-sm border-blue-200 shadow-lg">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-4">
-            <div className="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center">
-              <Music className="w-6 h-6 text-blue-400" />
+            <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+              <Music className="w-6 h-6 text-blue-600" />
             </div>
             <div>
-              <h3 className="font-semibold text-slate-100">{uploadedFile.name}</h3>
-              <p className="text-sm text-slate-400">{formatFileSize(uploadedFile.size)}</p>
+              <h3 className="font-semibold text-gray-900">{uploadedFile.name}</h3>
+              <p className="text-sm text-gray-500">{formatFileSize(uploadedFile.size)}</p>
             </div>
           </div>
           {!isProcessing && (
@@ -73,7 +73,7 @@ export const AudioUploader: React.FC<AudioUploaderProps> = ({
               variant="ghost" 
               size="sm" 
               onClick={removeFile}
-              className="text-slate-400 hover:text-red-400 hover:bg-red-500/10"
+              className="text-gray-400 hover:text-red-500"
             >
               <X className="w-4 h-4" />
             </Button>
@@ -84,12 +84,12 @@ export const AudioUploader: React.FC<AudioUploaderProps> = ({
   }
 
   return (
-    <Card className="p-8 glass-effect border-slate-600 shadow-xl">
+    <Card className="p-8 bg-white/80 backdrop-blur-sm border-blue-200 shadow-lg">
       <div
         className={`border-2 border-dashed rounded-xl p-12 text-center transition-all duration-300 ${
           isDragging
-            ? 'border-blue-400 bg-blue-500/10'
-            : 'border-slate-600 hover:border-blue-400 hover:bg-blue-500/5'
+            ? 'border-blue-400 bg-blue-50/50'
+            : 'border-gray-300 hover:border-blue-300 hover:bg-blue-50/30'
         }`}
         onDrop={handleDrop}
         onDragOver={(e) => {
@@ -102,18 +102,18 @@ export const AudioUploader: React.FC<AudioUploaderProps> = ({
           {/* Upload Icon */}
           <div className="flex justify-center">
             <div className={`w-16 h-16 rounded-full flex items-center justify-center transition-colors ${
-              isDragging ? 'bg-blue-500/20' : 'bg-slate-700'
+              isDragging ? 'bg-blue-100' : 'bg-gray-100'
             }`}>
-              <Upload className={`w-8 h-8 ${isDragging ? 'text-blue-400' : 'text-slate-400'}`} />
+              <Upload className={`w-8 h-8 ${isDragging ? 'text-blue-600' : 'text-gray-500'}`} />
             </div>
           </div>
           
           {/* Upload Text */}
           <div className="space-y-2">
-            <h3 className="text-xl font-semibold text-slate-100">
+            <h3 className="text-xl font-semibold text-gray-900">
               {isDragging ? 'Drop your audio file here' : 'Upload your audio file'}
             </h3>
-            <p className="text-slate-400">
+            <p className="text-gray-500">
               Drag and drop your file here, or click to browse
             </p>
           </div>
@@ -135,7 +135,7 @@ export const AudioUploader: React.FC<AudioUploaderProps> = ({
           </div>
           
           {/* Format Info */}
-          <div className="text-sm text-slate-500 space-y-1">
+          <div className="text-sm text-gray-400 space-y-1">
             <p>Supported formats: MP3, WAV</p>
             <p>Maximum file size: 50MB</p>
           </div>

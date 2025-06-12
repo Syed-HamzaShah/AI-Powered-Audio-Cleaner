@@ -22,7 +22,7 @@ const Index = () => {
   } = useAudioProcessor();
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-slate-100">
       {/* Hero Section */}
       <Hero />
       
@@ -91,7 +91,7 @@ const Index = () => {
       </div>
       
       {/* Bottom Mobile Banner Ad - Only on mobile */}
-      <div className="lg:hidden fixed bottom-0 left-0 right-0 bg-slate-800/95 backdrop-blur-sm shadow-lg z-50">
+      <div className="lg:hidden fixed bottom-0 left-0 right-0 bg-white shadow-lg z-50">
         <div className="container mx-auto px-4 py-2">
           <AdPlacement id="mobile-bottom" size="mobile-banner" className="w-full" />
         </div>
@@ -101,22 +101,22 @@ const Index = () => {
       <div className="lg:hidden h-20"></div>
       
       {/* SEO Content Section */}
-      <div className="bg-slate-800/50 py-16 border-t border-slate-700">
+      <div className="bg-white py-16 border-t border-gray-200">
         <div className="container mx-auto px-4 max-w-4xl">
           <div className="prose prose-blue max-w-none">
-            <h2 className="text-3xl font-bold text-slate-100 mb-6">
+            <h2 className="text-3xl font-bold text-gray-900 mb-6">
               Professional AI Audio Cleaning Tool
             </h2>
-            <div className="grid md:grid-cols-2 gap-8 text-slate-300">
+            <div className="grid md:grid-cols-2 gap-8 text-gray-700">
               <div>
-                <h3 className="text-xl font-semibold mb-3 text-slate-200">Advanced Noise Reduction</h3>
+                <h3 className="text-xl font-semibold mb-3">Advanced Noise Reduction</h3>
                 <p className="mb-4">
                   Our AI-powered noise reduction technology removes unwanted background noise, 
                   hums, clicks, and artifacts from your audio recordings. Perfect for podcasters, 
                   content creators, and musicians who need clean, professional-quality audio.
                 </p>
                 
-                <h3 className="text-xl font-semibold mb-3 text-slate-200">Vocal Isolation & Music Separation</h3>
+                <h3 className="text-xl font-semibold mb-3">Vocal Isolation & Music Separation</h3>
                 <p>
                   Separate vocals from instrumental tracks or isolate specific instruments 
                   using advanced machine learning algorithms. Great for creating karaoke tracks, 
@@ -124,7 +124,7 @@ const Index = () => {
                 </p>
               </div>
               <div>
-                <h3 className="text-xl font-semibold mb-3 text-slate-200">Supported Formats</h3>
+                <h3 className="text-xl font-semibold mb-3">Supported Formats</h3>
                 <ul className="list-disc list-inside mb-4 space-y-1">
                   <li>MP3 files (all bitrates)</li>
                   <li>WAV files (16-bit, 24-bit)</li>
@@ -132,7 +132,7 @@ const Index = () => {
                   <li>Fast processing times</li>
                 </ul>
                 
-                <h3 className="text-xl font-semibold mb-3 text-slate-200">Use Cases</h3>
+                <h3 className="text-xl font-semibold mb-3">Use Cases</h3>
                 <ul className="list-disc list-inside space-y-1">
                   <li>Podcast audio enhancement</li>
                   <li>Music production and mastering</li>
