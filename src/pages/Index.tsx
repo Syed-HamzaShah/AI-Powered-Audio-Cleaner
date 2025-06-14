@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Hero } from '@/components/Hero';
 import { AudioUploader } from '@/components/AudioUploader';
@@ -56,7 +55,7 @@ const Index = () => {
               />
             )}
             
-            {/* Middle Rectangle Ad - Shows between processing and results */}
+            {/* Middle Rectangle Ad */}
             {uploadedFile && !processedAudio && (
               <div className="flex justify-center py-4">
                 <AdPlacement id="middle-rectangle" size="rectangle" />
@@ -82,7 +81,7 @@ const Index = () => {
             )}
           </div>
           
-          {/* Sidebar with Ads - Hidden on mobile */}
+          {/* Sidebar with Ads */}
           <div className="hidden lg:block w-48 space-y-6">
             <AdPlacement id="sidebar-1" size="sidebar" />
             <AdPlacement id="sidebar-2" size="sidebar" />
@@ -90,57 +89,60 @@ const Index = () => {
         </div>
       </div>
       
-      {/* Bottom Mobile Banner Ad - Only on mobile */}
+      {/* Bottom Mobile Banner Ad */}
       <div className="lg:hidden fixed bottom-0 left-0 right-0 bg-white shadow-lg z-50">
         <div className="container mx-auto px-4 py-2">
           <AdPlacement id="mobile-bottom" size="mobile-banner" className="w-full" />
         </div>
       </div>
-      
+
       {/* Bottom spacing for mobile ad */}
       <div className="lg:hidden h-20"></div>
-      
-      {/* SEO Content Section */}
-      <div className="bg-white py-16 border-t border-gray-200">
-        <div className="container mx-auto px-4 max-w-4xl">
-          <div className="prose prose-blue max-w-none">
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">
-              Professional AI Audio Cleaning Tool
-            </h2>
-            <div className="grid md:grid-cols-2 gap-8 text-gray-700">
-              <div>
-                <h3 className="text-xl font-semibold mb-3">Advanced Noise Reduction</h3>
-                <p className="mb-4">
-                  Our AI-powered noise reduction technology removes unwanted background noise, 
-                  hums, clicks, and artifacts from your audio recordings. Perfect for podcasters, 
-                  content creators, and musicians who need clean, professional-quality audio.
-                </p>
-                
-                <h3 className="text-xl font-semibold mb-3">Vocal Isolation & Music Separation</h3>
-                <p>
-                  Separate vocals from instrumental tracks or isolate specific instruments 
-                  using advanced machine learning algorithms. Great for creating karaoke tracks, 
-                  remixes, or extracting vocals for sampling.
-                </p>
-              </div>
-              <div>
-                <h3 className="text-xl font-semibold mb-3">Supported Formats</h3>
-                <ul className="list-disc list-inside mb-4 space-y-1">
-                  <li>MP3 files (all bitrates)</li>
-                  <li>WAV files (16-bit, 24-bit)</li>
-                  <li>High-quality output preservation</li>
-                  <li>Fast processing times</li>
-                </ul>
-                
-                <h3 className="text-xl font-semibold mb-3">Use Cases</h3>
-                <ul className="list-disc list-inside space-y-1">
-                  <li>Podcast audio enhancement</li>
-                  <li>Music production and mastering</li>
-                  <li>Voice recording cleanup</li>
-                  <li>Interview audio improvement</li>
-                  <li>Educational content creation</li>
-                </ul>
-              </div>
+
+      {/* SEO Content Section Styled Like Hero */}
+      <div className="relative overflow-hidden bg-gradient-to-br from-blue-600 via-blue-700 to-blue-800 py-10 border-t border-blue-900">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent transform -skew-y-12"></div>
+        </div>
+
+        <div className="relative container mx-auto px-4 max-w-4xl text-blue-100">
+          <h2 className="text-3xl font-bold text-white mb-10 text-center">
+            Professional AI Audio Cleaning Tool
+          </h2>
+          <div className="grid md:grid-cols-2 gap-12 leading-relaxed">
+            <div>
+              <h3 className="text-xl font-semibold mb-3 text-blue-200">Advanced Noise Reduction</h3>
+              <p className="mb-6">
+                Our AI-powered noise reduction technology removes unwanted background noise, 
+                hums, clicks, and artifacts from your audio recordings. Perfect for podcasters, 
+                content creators, and musicians who need clean, professional-quality audio.
+              </p>
+
+              <h3 className="text-xl font-semibold mb-3 text-blue-200">Vocal Isolation & Music Separation</h3>
+              <p>
+                Separate vocals from instrumental tracks or isolate specific instruments 
+                using advanced machine learning algorithms. Great for creating karaoke tracks, 
+                remixes, or extracting vocals for sampling.
+              </p>
+            </div>
+            <div>
+              <h3 className="text-xl font-semibold mb-3 text-blue-200">Supported Formats</h3>
+              <ul className="list-disc list-inside space-y-2 mb-6">
+                <li>MP3 files (all bitrates)</li>
+                <li>WAV files (16-bit, 24-bit)</li>
+                <li>High-quality output preservation</li>
+                <li>Fast processing times</li>
+              </ul>
+
+              <h3 className="text-xl font-semibold mb-3 text-blue-200">Use Cases</h3>
+              <ul className="list-disc list-inside space-y-2">
+                <li>Podcast audio enhancement</li>
+                <li>Music production and mastering</li>
+                <li>Voice recording cleanup</li>
+                <li>Interview audio improvement</li>
+                <li>Educational content creation</li>
+              </ul>
             </div>
           </div>
         </div>
