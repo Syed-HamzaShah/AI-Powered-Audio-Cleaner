@@ -1,11 +1,8 @@
 import { useState } from 'react';
 import { toast } from '@/hooks/use-toast';
 
-export type ProcessingMode = 'noise-reduction' | 'vocal-separation';
-
 export const useAudioProcessor = () => {
   const [uploadedFile, setUploadedFile] = useState<File | null>(null);
-  const [processingMode, setProcessingMode] = useState<ProcessingMode>('noise-reduction');
   const [isProcessing, setIsProcessing] = useState(false);
   const [processedAudio, setProcessedAudio] = useState<string | null>(null);
 
@@ -25,14 +22,8 @@ export const useAudioProcessor = () => {
       const formData = new FormData();
       formData.append('file', uploadedFile);
 
-      // 🔁 Map frontend mode to backend route
-      // const backendMode = processingMode === 'noise-reduction' ? 'rnnoise' : 'spleeter';
-      const backendMode = processingMode === 'noise-reduction' ? 'silero' : 'spleeter';
-
-
-      // 🌐 Replace with your actual Railway backend URL
       const backendBaseUrl = 'https://audiorefine.onrender.com';
-      const endpoint = `${backendBaseUrl}/process/${backendMode}`;
+      const endpoint = `${backendBaseUrl}/process/silero`; // ✅ Hardcoded to silero
 
       const response = await fetch(endpoint, {
         method: 'POST',
@@ -41,14 +32,12 @@ export const useAudioProcessor = () => {
 
       if (!response.ok) throw new Error('Processing failed');
 
-      // const { output } = await response.json();
-      // const processedUrl = `${backendBaseUrl}/${output}`;
       const { processedUrl } = await response.json();
       setProcessedAudio(processedUrl);
 
       toast({
         title: 'Processing complete!',
-        description: `Your audio has been processed using ${processingMode === 'noise-reduction' ? 'noise reduction' : 'vocal separation'}.`,
+        description: 'Your audio has been cleaned using noise reduction and silence removal.',
       });
     } catch (error) {
       toast({
@@ -83,7 +72,6 @@ export const useAudioProcessor = () => {
     setUploadedFile(null);
     setProcessedAudio(null);
     setIsProcessing(false);
-    setProcessingMode('noise-reduction');
 
     toast({
       title: 'Reset complete',
@@ -94,8 +82,6 @@ export const useAudioProcessor = () => {
   return {
     uploadedFile,
     setUploadedFile,
-    processingMode,
-    setProcessingMode,
     isProcessing,
     processedAudio,
     startProcessing,

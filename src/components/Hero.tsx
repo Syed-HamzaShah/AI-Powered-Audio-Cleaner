@@ -1,5 +1,5 @@
 import React from 'react';
-import { Headphones, Zap, Music } from 'lucide-react';
+import { Headphones, Zap } from 'lucide-react';
 
 export const Hero = () => {
   return (
@@ -9,7 +9,7 @@ export const Hero = () => {
         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent transform -skew-y-12"></div>
       </div>
 
-      <div className="relative container mx-auto px-4 py-8 lg:py-12"> {/* 👈 Smaller padding here */}
+      <div className="relative container mx-auto px-4 py-8 lg:py-12">
         <div className="text-center">
           {/* Icon */}
           <div className="flex justify-center mb-6">
@@ -30,16 +30,18 @@ export const Hero = () => {
           </h1>
 
           {/* Subtitle */}
-          <p className="text-lg md:text-xl text-blue-100 mb-6 max-w-3xl mx-auto leading-relaxed animate-fade-in" style={{ animationDelay: '0.2s' }}>
-            Remove background noise or isolate vocals from any audio file in seconds
+          <p
+            className="text-lg md:text-xl text-blue-100 mb-6 max-w-3xl mx-auto leading-relaxed animate-fade-in"
+            style={{ animationDelay: '0.2s' }}
+          >
+            Remove background noise from any audio file in seconds using AI.
           </p>
 
           {/* Features */}
-          <div className="flex flex-wrap justify-center gap-4 mb-8 animate-fade-in" style={{ animationDelay: '0.4s' }}>
-            <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-3 py-1.5">
-              <Music className="w-4 h-4 text-blue-200" />
-              <span className="text-blue-100 font-medium text-sm">Music Separation</span>
-            </div>
+          <div
+            className="flex flex-wrap justify-center gap-4 mb-8 animate-fade-in"
+            style={{ animationDelay: '0.4s' }}
+          >
             <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-3 py-1.5">
               <Headphones className="w-4 h-4 text-blue-200" />
               <span className="text-blue-100 font-medium text-sm">Noise Reduction</span>
