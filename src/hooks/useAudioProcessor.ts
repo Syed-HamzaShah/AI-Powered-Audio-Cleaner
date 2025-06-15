@@ -26,10 +26,12 @@ export const useAudioProcessor = () => {
       formData.append('file', uploadedFile);
 
       // 🔁 Map frontend mode to backend route
-      const backendMode = processingMode === 'noise-reduction' ? 'rnnoise' : 'spleeter';
+      // const backendMode = processingMode === 'noise-reduction' ? 'rnnoise' : 'spleeter';
+      const backendMode = processingMode === 'noise-reduction' ? 'silero' : 'spleeter';
+
 
       // 🌐 Replace with your actual Railway backend URL
-      const backendBaseUrl = 'https://your-backend.up.railway.app';
+      const backendBaseUrl = 'https://audiorefine.onrender.com';
       const endpoint = `${backendBaseUrl}/process/${backendMode}`;
 
       const response = await fetch(endpoint, {
@@ -39,9 +41,9 @@ export const useAudioProcessor = () => {
 
       if (!response.ok) throw new Error('Processing failed');
 
-      const { output } = await response.json();
-      const processedUrl = `${backendBaseUrl}/${output}`;
-
+      // const { output } = await response.json();
+      // const processedUrl = `${backendBaseUrl}/${output}`;
+      const { processedUrl } = await response.json();
       setProcessedAudio(processedUrl);
 
       toast({
